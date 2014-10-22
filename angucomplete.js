@@ -5,7 +5,7 @@
  */
 
 angular.module('angucomplete', [] )
-    .directive('angucomplete', function ($parse, $http, $sce, $timeout) {
+    .directive('angucomplete', ['$parse', '$http', '$sce', '$timeout', function ($parse, $http, $sce, $timeout) {
     return {
         restrict: 'EA',
         scope: {
@@ -242,5 +242,5 @@ angular.module('angucomplete', [] )
 
         }
     };
-});
+}]);
 
