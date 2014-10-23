@@ -12,6 +12,7 @@ angular.module('angucomplete', [] )
             "id": "@id",
             "placeholder": "@placeholder",
             "selectedObject": "=selectedobject",
+            "enteredText": "=enteredtext",
             "url": "@url",
             "dataField": "@datafield",
             "titleField": "@titlefield",
@@ -225,6 +226,8 @@ angular.module('angucomplete', [] )
                         event.stopPropagation();
                     } else {
                         $scope.results = [];
+                        $scope.showDropdown = false;
+                        $scope.enteredText = $scope.searchStr;
                         $scope.$apply();
                         event.preventDefault;
                         event.stopPropagation();
