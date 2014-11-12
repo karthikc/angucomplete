@@ -152,7 +152,7 @@ angular.module('angucomplete', [] )
             $scope.hideResults = function() {
                 $scope.hideTimer = $timeout(function() {
                     $scope.showDropdown = false;
-                }, $scope.pause);
+                }, 500);
             };
 
             $scope.resetHideResults = function() {
