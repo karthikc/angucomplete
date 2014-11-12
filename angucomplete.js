@@ -108,6 +108,12 @@ angular.module('angucomplete', [] )
 
             $scope.searchTimerComplete = function(str) {
                 // Begin the search
+                if (typeof String.prototype.startsWith != 'function') {
+                    // see below for better implementation!
+                    String.prototype.startsWith = function (str){
+                        return this.indexOf(str) == 0;
+                    };
+                }
 
                 if (str.length >= $scope.minLength) {
                     if ($scope.localData) {
@@ -119,7 +125,7 @@ angular.module('angucomplete', [] )
                             var match = false;
 
                             for (var s = 0; s < searchFields.length; s++) {
-                                match = match || (typeof $scope.localData[i][searchFields[s]] === 'string' && typeof str === 'string' && $scope.localData[i][searchFields[s]].toLowerCase().indexOf(str.toLowerCase()) >= 0);
+                                match = match || (typeof $scope.localData[i][searchFields[s]] === 'string' && typeof str === 'string' && $scope.localData[i][searchFields[s]].toLowerCase().startsWith(str.toLowerCase()));
                             }
 
                             if (match) {
