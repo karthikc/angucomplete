@@ -78,3 +78,10 @@
     height: 34px;
     width: 34px;
 }
+
+.angucomplete-clipped {
+  color: #acacac;
+  font-size: 0.9em;
+  font-weight: bold;
+  font-style: italic;
+}
